@@ -42,5 +42,20 @@ function getComputerChoice() {
   }
 }
 
+function getHumanChoice() {
+  let input = prompt("Choose Rock, Paper or Scissors")
+
+    if (input === "Rock") {
+      return "Rock";
+    } else if (input === "Paper") {
+      return "Paper";
+    } else {
+      return "Scissors"
+    }
+  }
+
+
+  
+
 
 
