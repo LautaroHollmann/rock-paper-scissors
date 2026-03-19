@@ -54,9 +54,43 @@ function getHumanChoice() {
     }
   }
 
+
 let humanScore = 0
 let computerScore = 0 
 
 
+function playRound(humanChoice, computerChoice) {
+  console.log(humanChoice, computerChoice);
+  if (humanChoice === "Rock" && computerChoice === "Paper") {
+    return console.log("You lost! Paper beats Rock.")
+  } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+    return console.log("You lost! Scissors beat Paper.")
+  } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+    return console.log("You lost! Rock beats Scissors.")
+    
+  } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
+    return console.log("You win! Rock beats Scissors.")
+  } else if (humanChoice === "Paper" && computerChoice === "Rock") {
+    return console.log("You win! Paper beats Rock.")
+  } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
+    return console.log("You win! Scissors beat Paper.")
 
+  } else {
+    return console.log("It's a draw!")
+}
+}
+
+// Works fine now if: "playRound(getHumanChoice(), getComputerChoice())" is used, as the functions run in that moment again then
+// "playRound(humanSelection, computerSelection)" does not work as I thought it would, because it uses stored values - always the same
+
+
+// --> Make function’s humanChoice parameter case-insensitive so that players can input “rock”, “ROCK”, “RocK”, or other variations.
+// --> Increment the humanScore or computerScore variable based on the round winner.
+
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+//playRound(humanSelection, computerSelection);
+//playRound(getHumanChoice(), getComputerChoice())
 
