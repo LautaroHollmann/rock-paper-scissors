@@ -44,49 +44,67 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   let input = prompt("Choose Rock, Paper or Scissors")
-
-    if (input === "Rock") {
-      return "Rock";
-    } else if (input === "Paper") {
-      return "Paper";
-    } else {
-      return "Scissors"
+  let cap = capitalize(input.trim())
+      if (cap != "Rock" && cap != "Paper" && cap != "Scissors") {
+    return
+    }
+      else { return cap
     }
   }
 
-
+// --> Increment the humanScore or computerScore variable based on the round winner (see playRound()).
 let humanScore = 0
 let computerScore = 0 
 
 
+// --> Make function’s humanChoice parameter case-insensitive so that players can input “rock”, “ROCK”, “RocK”, or other variations.
+function capitalize(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    };
+
+
 function playRound(humanChoice, computerChoice) {
+
   console.log(humanChoice, computerChoice);
-  if (humanChoice === "Rock" && computerChoice === "Paper") {
-    return console.log("You lost! Paper beats Rock.")
+
+  if (humanChoice != "Rock" && humanChoice != "Paper" && humanChoice != "Scissors") {
+    console.log("Please choose either 'Rock', 'Paper' or 'Scissors'")
+  } else if (humanChoice === "Rock" && computerChoice === "Paper") {
+    ++computerScore
+    console.log("You lost! Paper beats Rock."), 
+    console.log("Score:", humanScore, computerScore);
   } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-    return console.log("You lost! Scissors beat Paper.")
+    ++computerScore
+    console.log("You lost! Scissors beat Paper.")
+    console.log("Score:", humanScore, computerScore);
   } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
-    return console.log("You lost! Rock beats Scissors.")
-    
+    ++computerScore
+    console.log("You lost! Rock beats Scissors.")
+    console.log("Score:", humanScore, computerScore);
+
+
   } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
-    return console.log("You win! Rock beats Scissors.")
+    ++humanScore
+    console.log("You win! Rock beats Scissors.")
+    console.log("Score:", humanScore, computerScore);
   } else if (humanChoice === "Paper" && computerChoice === "Rock") {
-    return console.log("You win! Paper beats Rock.")
+    ++humanScore
+    console.log("You win! Paper beats Rock.")
+    console.log("Score:", humanScore, computerScore);
   } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-    return console.log("You win! Scissors beat Paper.")
+    ++humanScore
+    console.log("You win! Scissors beat Paper.")
+    console.log("Score:", humanScore, computerScore);
 
   } else {
-    return console.log("It's a draw!")
+    console.log("It's a draw!")
+    console.log("Score:", humanScore, computerScore);
+    
 }
 }
 
 // Works fine now if: "playRound(getHumanChoice(), getComputerChoice())" is used, as the functions run in that moment again then
 // "playRound(humanSelection, computerSelection)" does not work as I thought it would, because it uses stored values - always the same
-
-
-// --> Make function’s humanChoice parameter case-insensitive so that players can input “rock”, “ROCK”, “RocK”, or other variations.
-// --> Increment the humanScore or computerScore variable based on the round winner.
-
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
