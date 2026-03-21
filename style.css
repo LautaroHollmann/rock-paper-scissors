@@ -1,0 +1,16 @@
+body {
+    font: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    color: rgb(22, 159, 114);
+    text-align: center;
+}
+
+.intro {
+    font-weight: bold;
+}
+
+.outro {
+    font-size: 12px;
+    color: rgb(6, 93, 64);
+}
