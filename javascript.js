@@ -21,7 +21,8 @@ function getHumanChoice() {
       if (cap != "Rock" && cap != "Paper" && cap != "Scissors") {
     return
     }
-      else { return cap
+      else {
+        return cap
     }
   }
 
@@ -37,39 +38,87 @@ function capitalize(word) {
     };
 
 
-function playRound(humanChoice, computerChoice) {
-
-  console.log(humanChoice, "vs", computerChoice);
+function playRound(humanChoice) {
+  const computerChoice = getComputerChoice();
+  choices.textContent = `${humanChoice} vs ${computerChoice}`
 
   if (humanChoice != "Rock" && humanChoice != "Paper" && humanChoice != "Scissors") {
-    console.log("Please choose either 'Rock', 'Paper' or 'Scissors'")
+    resultsMessages.textContent = "Please choose either 'Rock', 'Paper' or 'Scissors'"
   } else if (humanChoice === "Rock" && computerChoice === "Paper") {
     ++computerScore
-    console.log("You lost! Paper beats Rock.")
+    resultsMessages.textContent = "You lost! Paper beats Rock."
   } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
     ++computerScore
-    console.log("You lost! Scissors beat Paper.")
+    resultsMessages.textContent = "You lost! Scissors beat Paper."
   } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
     ++computerScore
-    console.log("You lost! Rock beats Scissors.")
+    resultsMessages.textContent = "You lost! Rock beats Scissors." 
 
   } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
     ++humanScore
-    console.log("You win! Rock beats Scissors.")
+    resultsMessages.textContent = "You win! Rock beats Scissors."
   } else if (humanChoice === "Paper" && computerChoice === "Rock") {
     ++humanScore
-    console.log("You win! Paper beats Rock.")
+    resultsMessages.textContent = "You win! Paper beats Rock."
   } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
     ++humanScore
-    console.log("You win! Scissors beat Paper.")
+    resultsMessages.textContent = "You win! Scissors beat Paper."
 
   } else {
-    console.log("It's a draw!")
-}
+    resultsMessages.textContent = "It's a draw!"
 }
 
+//Update Winner:
+  if (winner.textContent !== "") return;
+  if (humanScore >= 5) {
+    winner.textContent = "Congratulations, you win!"
+  } else if (computerScore >= 5) {
+    winner.textContent = "Too bad, you lost!"
+  }
 
-function playGame() {
+}
+
+const btnRock = document.querySelector(".btnRock")
+const btnPaper = document.querySelector(".btnPaper")
+const btnScissors = document.querySelector(".btnScissors")
+const results = document.querySelector(".results")
+const resultsMessages = document.querySelector(".resultsMessages")
+const choices = document.querySelector(".choices")
+
+btnRock.addEventListener("click", (RockChosen) => {
+  playRound("Rock")
+  results.textContent = `${humanScore} vs ${computerScore}`
+})
+
+btnPaper.addEventListener("click", (PaperChosen) => {
+  playRound("Paper")
+  results.textContent = `${humanScore} vs ${computerScore}`
+}
+)
+
+btnScissors.addEventListener("click", (ScissorsChosen) => {
+  playRound("Scissors")
+  results.textContent = `${humanScore} vs ${computerScore}`
+})
+
+//Reset Button:
+const btnReset = document.querySelector(".btnReset")
+
+btnReset.addEventListener("click", (Reset) => {
+  humanScore = 0
+  computerScore = 0 
+  choices.textContent = ""
+  resultsMessages.textContent = ""
+  results.textContent = ""
+  winner.textContent = ""
+})
+
+const winner = document.querySelector(".winner")
+
+
+
+
+/*function playGame() {
   humanScore = 0
   computerScore = 0 
   
@@ -89,6 +138,7 @@ function playGame() {
   } else
     console.log("You lost the game! Better luck next time!")
 }
+*/
 
 
 /*
