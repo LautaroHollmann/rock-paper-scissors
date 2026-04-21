@@ -87,18 +87,18 @@ const choices = document.querySelector(".choices")
 
 btnRock.addEventListener("click", (RockChosen) => {
   playRound("Rock")
-  results.textContent = `${humanScore} vs ${computerScore}`
+  results.textContent = `Score: ${humanScore} - ${computerScore}`
 })
 
 btnPaper.addEventListener("click", (PaperChosen) => {
   playRound("Paper")
-  results.textContent = `${humanScore} vs ${computerScore}`
+  results.textContent = `Score: ${humanScore} - ${computerScore}`
 }
 )
 
 btnScissors.addEventListener("click", (ScissorsChosen) => {
   playRound("Scissors")
-  results.textContent = `${humanScore} vs ${computerScore}`
+  results.textContent = `Score: ${humanScore} - ${computerScore}`
 })
 
 //Reset Button:

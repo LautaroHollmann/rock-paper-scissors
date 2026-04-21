@@ -4,8 +4,40 @@ body {
     font-size: 22px;
     color: rgb(22, 159, 114);
     text-align: center;
+    background-color: rgb(246, 234, 218);
 }
 
 .intro {
     font-weight: bold;
+}
+
+button {
+    background-color: rgb(44, 109, 31);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 4px 8px 4px 8px;
+    margin: 6px;
+    font-size: 28px;
+}
+
+.btnReset {
+    font-size: 20px;
+    background-color: rgb(74, 155, 58);
+}
+
+div {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.choices {
+    color: rgb(17, 17, 69);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.winner {
+    font-weight: bold;
+    text-decoration: underline;
 }
